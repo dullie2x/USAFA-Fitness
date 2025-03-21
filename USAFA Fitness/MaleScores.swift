@@ -249,7 +249,7 @@ struct MaleScores: View {
                     }
                 }
                 
-                // PFT Score display
+                // PFT Score display.
                 let scoreDetails = gradeAndScale(for: totalScore)
                 Text("Male PFT Score: \(totalScore)")
                     .font(.title)
