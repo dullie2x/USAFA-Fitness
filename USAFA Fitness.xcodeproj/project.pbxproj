@@ -1,0 +1,729 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C7986BE2D8DD8D800464AD0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986BD2D8DD8D800464AD0 /* FirebaseAnalytics */; };
+		9C7986C02D8DD8D800464AD0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986BF2D8DD8D800464AD0 /* FirebaseAuth */; };
+		9C7986C22D8DD8D800464AD0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986C12D8DD8D800464AD0 /* FirebaseCrashlytics */; };
+		9C7986C42D8DD8D800464AD0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986C32D8DD8D800464AD0 /* FirebaseDatabase */; };
+		9C7986C62D8DD8D800464AD0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986C52D8DD8D800464AD0 /* FirebaseFirestore */; };
+		9C7986C82D8DD8D800464AD0 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986C72D8DD8D800464AD0 /* FirebaseInAppMessaging-Beta */; };
+		9C7986CA2D8DD8D800464AD0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986C92D8DD8D800464AD0 /* FirebaseMessaging */; };
+		9C7986CC2D8DD8D800464AD0 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986CB2D8DD8D800464AD0 /* FirebaseRemoteConfig */; };
+		9C7986CE2D8DD8D800464AD0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986CD2D8DD8D800464AD0 /* FirebaseStorage */; };
+		9CA5EB832D8DDA42007F9048 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 9CA5EB822D8DDA42007F9048 /* GoogleMobileAds */; };
+		A020AC392B64407B009CA056 /* SplashPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020AC382B64407B009CA056 /* SplashPage.swift */; };
+		A0EC047B2A117D1E00C33A41 /* USAFA_FitnessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC047A2A117D1E00C33A41 /* USAFA_FitnessApp.swift */; };
+		A0EC047D2A117D1E00C33A41 /* MaleScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC047C2A117D1E00C33A41 /* MaleScores.swift */; };
+		A0EC047F2A117D2000C33A41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EC047E2A117D2000C33A41 /* Assets.xcassets */; };
+		A0EC04822A117D2000C33A41 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EC04812A117D2000C33A41 /* Preview Assets.xcassets */; };
+		A0EC048C2A117D2000C33A41 /* USAFA_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC048B2A117D2000C33A41 /* USAFA_FitnessTests.swift */; };
+		A0EC04962A117D2000C33A41 /* USAFA_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC04952A117D2000C33A41 /* USAFA_FitnessUITests.swift */; };
+		A0EC04982A117D2000C33A41 /* USAFA_FitnessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC04972A117D2000C33A41 /* USAFA_FitnessUITestsLaunchTests.swift */; };
+		A0EC04A52A11817E00C33A41 /* FemaleScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC04A42A11817E00C33A41 /* FemaleScores.swift */; };
+		A0F0CD812B61B4EB0084F037 /* FitnessScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0CD802B61B4EB0084F037 /* FitnessScoreCalculator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A0EC04882A117D2000C33A41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0EC046F2A117D1E00C33A41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0EC04762A117D1E00C33A41;
+			remoteInfo = "USAFA Fitness";
+		};
+		A0EC04922A117D2000C33A41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0EC046F2A117D1E00C33A41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0EC04762A117D1E00C33A41;
+			remoteInfo = "USAFA Fitness";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A020AC382B64407B009CA056 /* SplashPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPage.swift; sourceTree = "<group>"; };
+		A0EC04772A117D1E00C33A41 /* USAFA Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USAFA Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EC047A2A117D1E00C33A41 /* USAFA_FitnessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USAFA_FitnessApp.swift; sourceTree = "<group>"; };
+		A0EC047C2A117D1E00C33A41 /* MaleScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaleScores.swift; sourceTree = "<group>"; };
+		A0EC047E2A117D2000C33A41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0EC04812A117D2000C33A41 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A0EC04872A117D2000C33A41 /* USAFA FitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USAFA FitnessTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EC048B2A117D2000C33A41 /* USAFA_FitnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USAFA_FitnessTests.swift; sourceTree = "<group>"; };
+		A0EC04912A117D2000C33A41 /* USAFA FitnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USAFA FitnessUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EC04952A117D2000C33A41 /* USAFA_FitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USAFA_FitnessUITests.swift; sourceTree = "<group>"; };
+		A0EC04972A117D2000C33A41 /* USAFA_FitnessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USAFA_FitnessUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A0EC04A42A11817E00C33A41 /* FemaleScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FemaleScores.swift; sourceTree = "<group>"; };
+		A0F0CD802B61B4EB0084F037 /* FitnessScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessScoreCalculator.swift; sourceTree = "<group>"; };
+		A0F0CDC62B61D2350084F037 /* USAFA-Fitness-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "USAFA-Fitness-Info.plist"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0EC04742A117D1E00C33A41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C7986CC2D8DD8D800464AD0 /* FirebaseRemoteConfig in Frameworks */,
+				9C7986CA2D8DD8D800464AD0 /* FirebaseMessaging in Frameworks */,
+				9CA5EB832D8DDA42007F9048 /* GoogleMobileAds in Frameworks */,
+				9C7986C42D8DD8D800464AD0 /* FirebaseDatabase in Frameworks */,
+				9C7986CE2D8DD8D800464AD0 /* FirebaseStorage in Frameworks */,
+				9C7986C82D8DD8D800464AD0 /* FirebaseInAppMessaging-Beta in Frameworks */,
+				9C7986BE2D8DD8D800464AD0 /* FirebaseAnalytics in Frameworks */,
+				9C7986C22D8DD8D800464AD0 /* FirebaseCrashlytics in Frameworks */,
+				9C7986C02D8DD8D800464AD0 /* FirebaseAuth in Frameworks */,
+				9C7986C62D8DD8D800464AD0 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EC04842A117D2000C33A41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EC048E2A117D2000C33A41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0EC046E2A117D1E00C33A41 = {
+			isa = PBXGroup;
+			children = (
+				A0EC04792A117D1E00C33A41 /* USAFA Fitness */,
+				A0EC048A2A117D2000C33A41 /* USAFA FitnessTests */,
+				A0EC04942A117D2000C33A41 /* USAFA FitnessUITests */,
+				A0EC04782A117D1E00C33A41 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A0EC04782A117D1E00C33A41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0EC04772A117D1E00C33A41 /* USAFA Fitness.app */,
+				A0EC04872A117D2000C33A41 /* USAFA FitnessTests.xctest */,
+				A0EC04912A117D2000C33A41 /* USAFA FitnessUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0EC04792A117D1E00C33A41 /* USAFA Fitness */ = {
+			isa = PBXGroup;
+			children = (
+				A0EC047A2A117D1E00C33A41 /* USAFA_FitnessApp.swift */,
+				A020AC382B64407B009CA056 /* SplashPage.swift */,
+				A0EC047C2A117D1E00C33A41 /* MaleScores.swift */,
+				A0EC04A42A11817E00C33A41 /* FemaleScores.swift */,
+				A0F0CD802B61B4EB0084F037 /* FitnessScoreCalculator.swift */,
+				A0F0CDC62B61D2350084F037 /* USAFA-Fitness-Info.plist */,
+				A0EC047E2A117D2000C33A41 /* Assets.xcassets */,
+				A0EC04802A117D2000C33A41 /* Preview Content */,
+			);
+			path = "USAFA Fitness";
+			sourceTree = "<group>";
+		};
+		A0EC04802A117D2000C33A41 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A0EC04812A117D2000C33A41 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A0EC048A2A117D2000C33A41 /* USAFA FitnessTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0EC048B2A117D2000C33A41 /* USAFA_FitnessTests.swift */,
+			);
+			path = "USAFA FitnessTests";
+			sourceTree = "<group>";
+		};
+		A0EC04942A117D2000C33A41 /* USAFA FitnessUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A0EC04952A117D2000C33A41 /* USAFA_FitnessUITests.swift */,
+				A0EC04972A117D2000C33A41 /* USAFA_FitnessUITestsLaunchTests.swift */,
+			);
+			path = "USAFA FitnessUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0EC04762A117D1E00C33A41 /* USAFA Fitness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EC049B2A117D2000C33A41 /* Build configuration list for PBXNativeTarget "USAFA Fitness" */;
+			buildPhases = (
+				A0EC04732A117D1E00C33A41 /* Sources */,
+				A0EC04742A117D1E00C33A41 /* Frameworks */,
+				A0EC04752A117D1E00C33A41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "USAFA Fitness";
+			packageProductDependencies = (
+				9C7986BD2D8DD8D800464AD0 /* FirebaseAnalytics */,
+				9C7986BF2D8DD8D800464AD0 /* FirebaseAuth */,
+				9C7986C12D8DD8D800464AD0 /* FirebaseCrashlytics */,
+				9C7986C32D8DD8D800464AD0 /* FirebaseDatabase */,
+				9C7986C52D8DD8D800464AD0 /* FirebaseFirestore */,
+				9C7986C72D8DD8D800464AD0 /* FirebaseInAppMessaging-Beta */,
+				9C7986C92D8DD8D800464AD0 /* FirebaseMessaging */,
+				9C7986CB2D8DD8D800464AD0 /* FirebaseRemoteConfig */,
+				9C7986CD2D8DD8D800464AD0 /* FirebaseStorage */,
+				9CA5EB822D8DDA42007F9048 /* GoogleMobileAds */,
+			);
+			productName = "USAFA Fitness";
+			productReference = A0EC04772A117D1E00C33A41 /* USAFA Fitness.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A0EC04862A117D2000C33A41 /* USAFA FitnessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EC049E2A117D2000C33A41 /* Build configuration list for PBXNativeTarget "USAFA FitnessTests" */;
+			buildPhases = (
+				A0EC04832A117D2000C33A41 /* Sources */,
+				A0EC04842A117D2000C33A41 /* Frameworks */,
+				A0EC04852A117D2000C33A41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0EC04892A117D2000C33A41 /* PBXTargetDependency */,
+			);
+			name = "USAFA FitnessTests";
+			productName = "USAFA FitnessTests";
+			productReference = A0EC04872A117D2000C33A41 /* USAFA FitnessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A0EC04902A117D2000C33A41 /* USAFA FitnessUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EC04A12A117D2000C33A41 /* Build configuration list for PBXNativeTarget "USAFA FitnessUITests" */;
+			buildPhases = (
+				A0EC048D2A117D2000C33A41 /* Sources */,
+				A0EC048E2A117D2000C33A41 /* Frameworks */,
+				A0EC048F2A117D2000C33A41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0EC04932A117D2000C33A41 /* PBXTargetDependency */,
+			);
+			name = "USAFA FitnessUITests";
+			productName = "USAFA FitnessUITests";
+			productReference = A0EC04912A117D2000C33A41 /* USAFA FitnessUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0EC046F2A117D1E00C33A41 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					A0EC04762A117D1E00C33A41 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					A0EC04862A117D2000C33A41 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = A0EC04762A117D1E00C33A41;
+					};
+					A0EC04902A117D2000C33A41 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = A0EC04762A117D1E00C33A41;
+					};
+				};
+			};
+			buildConfigurationList = A0EC04722A117D1E00C33A41 /* Build configuration list for PBXProject "USAFA Fitness" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0EC046E2A117D1E00C33A41;
+			packageReferences = (
+				9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				9CA5EB812D8DDA42007F9048 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
+			productRefGroup = A0EC04782A117D1E00C33A41 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0EC04762A117D1E00C33A41 /* USAFA Fitness */,
+				A0EC04862A117D2000C33A41 /* USAFA FitnessTests */,
+				A0EC04902A117D2000C33A41 /* USAFA FitnessUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0EC04752A117D1E00C33A41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EC04822A117D2000C33A41 /* Preview Assets.xcassets in Resources */,
+				A0EC047F2A117D2000C33A41 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EC04852A117D2000C33A41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EC048F2A117D2000C33A41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0EC04732A117D1E00C33A41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EC047D2A117D1E00C33A41 /* MaleScores.swift in Sources */,
+				A020AC392B64407B009CA056 /* SplashPage.swift in Sources */,
+				A0F0CD812B61B4EB0084F037 /* FitnessScoreCalculator.swift in Sources */,
+				A0EC04A52A11817E00C33A41 /* FemaleScores.swift in Sources */,
+				A0EC047B2A117D1E00C33A41 /* USAFA_FitnessApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EC04832A117D2000C33A41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EC048C2A117D2000C33A41 /* USAFA_FitnessTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EC048D2A117D2000C33A41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EC04982A117D2000C33A41 /* USAFA_FitnessUITestsLaunchTests.swift in Sources */,
+				A0EC04962A117D2000C33A41 /* USAFA_FitnessUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A0EC04892A117D2000C33A41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0EC04762A117D1E00C33A41 /* USAFA Fitness */;
+			targetProxy = A0EC04882A117D2000C33A41 /* PBXContainerItemProxy */;
+		};
+		A0EC04932A117D2000C33A41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0EC04762A117D1E00C33A41 /* USAFA Fitness */;
+			targetProxy = A0EC04922A117D2000C33A41 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A0EC04992A117D2000C33A41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0EC049A2A117D2000C33A41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0EC049C2A117D2000C33A41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"USAFA Fitness/Preview Content\"";
+				DEVELOPMENT_TEAM = 9YFR4MTQA7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "USAFA-Fitness-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "USAFA Fitness";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.04;
+				OTHER_LDFLAGS = "-ObjC";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.USAFAFitness.USAFA-Fitness";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A0EC049D2A117D2000C33A41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"USAFA Fitness/Preview Content\"";
+				DEVELOPMENT_TEAM = 9YFR4MTQA7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "USAFA-Fitness-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "USAFA Fitness";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.04;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.USAFAFitness.USAFA-Fitness";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A0EC049F2A117D2000C33A41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L9MQN7GDTN;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.USAFAFitness.USAFA-FitnessTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/USAFA Fitness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/USAFA Fitness";
+			};
+			name = Debug;
+		};
+		A0EC04A02A117D2000C33A41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L9MQN7GDTN;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.USAFAFitness.USAFA-FitnessTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/USAFA Fitness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/USAFA Fitness";
+			};
+			name = Release;
+		};
+		A0EC04A22A117D2000C33A41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L9MQN7GDTN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.USAFAFitness.USAFA-FitnessUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "USAFA Fitness";
+			};
+			name = Debug;
+		};
+		A0EC04A32A117D2000C33A41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L9MQN7GDTN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.USAFAFitness.USAFA-FitnessUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "USAFA Fitness";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0EC04722A117D1E00C33A41 /* Build configuration list for PBXProject "USAFA Fitness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EC04992A117D2000C33A41 /* Debug */,
+				A0EC049A2A117D2000C33A41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0EC049B2A117D2000C33A41 /* Build configuration list for PBXNativeTarget "USAFA Fitness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EC049C2A117D2000C33A41 /* Debug */,
+				A0EC049D2A117D2000C33A41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0EC049E2A117D2000C33A41 /* Build configuration list for PBXNativeTarget "USAFA FitnessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EC049F2A117D2000C33A41 /* Debug */,
+				A0EC04A02A117D2000C33A41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0EC04A12A117D2000C33A41 /* Build configuration list for PBXNativeTarget "USAFA FitnessUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EC04A22A117D2000C33A41 /* Debug */,
+				A0EC04A32A117D2000C33A41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.10.0;
+			};
+		};
+		9CA5EB812D8DDA42007F9048 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C7986BD2D8DD8D800464AD0 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		9C7986BF2D8DD8D800464AD0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		9C7986C12D8DD8D800464AD0 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		9C7986C32D8DD8D800464AD0 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		9C7986C52D8DD8D800464AD0 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		9C7986C72D8DD8D800464AD0 /* FirebaseInAppMessaging-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessaging-Beta";
+		};
+		9C7986C92D8DD8D800464AD0 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		9C7986CB2D8DD8D800464AD0 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		9C7986CD2D8DD8D800464AD0 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		9CA5EB822D8DDA42007F9048 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CA5EB812D8DDA42007F9048 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A0EC046F2A117D1E00C33A41 /* Project object */;
+}
