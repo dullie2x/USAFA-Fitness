@@ -7,16 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C7986BE2D8DD8D800464AD0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986BD2D8DD8D800464AD0 /* FirebaseAnalytics */; };
-		9C7986C02D8DD8D800464AD0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986BF2D8DD8D800464AD0 /* FirebaseAuth */; };
-		9C7986C22D8DD8D800464AD0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986C12D8DD8D800464AD0 /* FirebaseCrashlytics */; };
-		9C7986C42D8DD8D800464AD0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986C32D8DD8D800464AD0 /* FirebaseDatabase */; };
-		9C7986C62D8DD8D800464AD0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986C52D8DD8D800464AD0 /* FirebaseFirestore */; };
-		9C7986C82D8DD8D800464AD0 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986C72D8DD8D800464AD0 /* FirebaseInAppMessaging-Beta */; };
-		9C7986CA2D8DD8D800464AD0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986C92D8DD8D800464AD0 /* FirebaseMessaging */; };
-		9C7986CC2D8DD8D800464AD0 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986CB2D8DD8D800464AD0 /* FirebaseRemoteConfig */; };
-		9C7986CE2D8DD8D800464AD0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9C7986CD2D8DD8D800464AD0 /* FirebaseStorage */; };
-		9CA5EB832D8DDA42007F9048 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 9CA5EB822D8DDA42007F9048 /* GoogleMobileAds */; };
+		9CDBDB722D8DEC1300C09E64 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDBDB712D8DEC1300C09E64 /* GoogleMobileAds */; };
 		A020AC392B64407B009CA056 /* SplashPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020AC382B64407B009CA056 /* SplashPage.swift */; };
 		A0EC047B2A117D1E00C33A41 /* USAFA_FitnessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC047A2A117D1E00C33A41 /* USAFA_FitnessApp.swift */; };
 		A0EC047D2A117D1E00C33A41 /* MaleScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC047C2A117D1E00C33A41 /* MaleScores.swift */; };
@@ -68,16 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C7986CC2D8DD8D800464AD0 /* FirebaseRemoteConfig in Frameworks */,
-				9C7986CA2D8DD8D800464AD0 /* FirebaseMessaging in Frameworks */,
-				9CA5EB832D8DDA42007F9048 /* GoogleMobileAds in Frameworks */,
-				9C7986C42D8DD8D800464AD0 /* FirebaseDatabase in Frameworks */,
-				9C7986CE2D8DD8D800464AD0 /* FirebaseStorage in Frameworks */,
-				9C7986C82D8DD8D800464AD0 /* FirebaseInAppMessaging-Beta in Frameworks */,
-				9C7986BE2D8DD8D800464AD0 /* FirebaseAnalytics in Frameworks */,
-				9C7986C22D8DD8D800464AD0 /* FirebaseCrashlytics in Frameworks */,
-				9C7986C02D8DD8D800464AD0 /* FirebaseAuth in Frameworks */,
-				9C7986C62D8DD8D800464AD0 /* FirebaseFirestore in Frameworks */,
+				9CDBDB722D8DEC1300C09E64 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,16 +157,7 @@
 			);
 			name = "USAFA Fitness";
 			packageProductDependencies = (
-				9C7986BD2D8DD8D800464AD0 /* FirebaseAnalytics */,
-				9C7986BF2D8DD8D800464AD0 /* FirebaseAuth */,
-				9C7986C12D8DD8D800464AD0 /* FirebaseCrashlytics */,
-				9C7986C32D8DD8D800464AD0 /* FirebaseDatabase */,
-				9C7986C52D8DD8D800464AD0 /* FirebaseFirestore */,
-				9C7986C72D8DD8D800464AD0 /* FirebaseInAppMessaging-Beta */,
-				9C7986C92D8DD8D800464AD0 /* FirebaseMessaging */,
-				9C7986CB2D8DD8D800464AD0 /* FirebaseRemoteConfig */,
-				9C7986CD2D8DD8D800464AD0 /* FirebaseStorage */,
-				9CA5EB822D8DDA42007F9048 /* GoogleMobileAds */,
+				9CDBDB712D8DEC1300C09E64 /* GoogleMobileAds */,
 			);
 			productName = "USAFA Fitness";
 			productReference = A0EC04772A117D1E00C33A41 /* USAFA Fitness.app */;
@@ -259,8 +232,7 @@
 			);
 			mainGroup = A0EC046E2A117D1E00C33A41;
 			packageReferences = (
-				9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				9CA5EB812D8DDA42007F9048 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				9CDBDB702D8DEC1300C09E64 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = A0EC04782A117D1E00C33A41 /* Products */;
 			projectDirPath = "";
@@ -467,7 +439,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"USAFA Fitness/Preview Content\"";
 				DEVELOPMENT_TEAM = 9YFR4MTQA7;
 				ENABLE_PREVIEWS = YES;
@@ -507,7 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"USAFA Fitness/Preview Content\"";
 				DEVELOPMENT_TEAM = 9YFR4MTQA7;
 				ENABLE_PREVIEWS = YES;
@@ -654,15 +627,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.10.0;
-			};
-		};
-		9CA5EB812D8DDA42007F9048 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+		9CDBDB702D8DEC1300C09E64 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
 			requirement = {
@@ -673,54 +638,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9C7986BD2D8DD8D800464AD0 /* FirebaseAnalytics */ = {
+		9CDBDB712D8DEC1300C09E64 /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		9C7986BF2D8DD8D800464AD0 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		9C7986C12D8DD8D800464AD0 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		9C7986C32D8DD8D800464AD0 /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
-		};
-		9C7986C52D8DD8D800464AD0 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		9C7986C72D8DD8D800464AD0 /* FirebaseInAppMessaging-Beta */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseInAppMessaging-Beta";
-		};
-		9C7986C92D8DD8D800464AD0 /* FirebaseMessaging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseMessaging;
-		};
-		9C7986CB2D8DD8D800464AD0 /* FirebaseRemoteConfig */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
-		};
-		9C7986CD2D8DD8D800464AD0 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C7986BC2D8DD8D800464AD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
-		};
-		9CA5EB822D8DDA42007F9048 /* GoogleMobileAds */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9CA5EB812D8DDA42007F9048 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			package = 9CDBDB702D8DEC1300C09E64 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
