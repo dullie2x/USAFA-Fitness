@@ -5,7 +5,6 @@
 
 import SwiftUI
 import GoogleMobileAds
-import AppTrackingTransparency
 
 @main
 struct USAFA_FitnessApp: App {
@@ -73,15 +72,10 @@ class AppDelegate: NSObject, UIApplicationDelegate, FullScreenContentDelegate {
         return true
     }
 
-    /// Called once the splash screen is gone: ask for tracking permission (first time only),
-    /// then load and show the app open ad if this launch qualifies.
+    /// Called once the splash screen is gone: load and show the app open ad if this launch qualifies.
     func splashDidFinish() {
-        ATTrackingManager.requestTrackingAuthorization { [weak self] _ in
-            DispatchQueue.main.async {
-                guard let self, self.shouldShowAdThisLaunch else { return }
-                self.loadAd()
-            }
-        }
+        guard shouldShowAdThisLaunch else { return }
+        loadAd()
     }
 
     func loadAd() {
