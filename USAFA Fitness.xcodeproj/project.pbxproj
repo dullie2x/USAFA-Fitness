@@ -18,6 +18,12 @@
 		A0EC04982A117D2000C33A41 /* USAFA_FitnessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC04972A117D2000C33A41 /* USAFA_FitnessUITestsLaunchTests.swift */; };
 		A0EC04A52A11817E00C33A41 /* FemaleScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC04A42A11817E00C33A41 /* FemaleScores.swift */; };
 		A0F0CD812B61B4EB0084F037 /* FitnessScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0CD802B61B4EB0084F037 /* FitnessScoreCalculator.swift */; };
+		A0FE12352C0000000000FE02 /* FitnessTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE12342C0000000000FE01 /* FitnessTheme.swift */; };
+		CC110001CC110001CC110001 /* FitnessSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC110002CC110002CC110002 /* FitnessSession.swift */; };
+		CC110003CC110003CC110003 /* ShareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC110004CC110004CC110004 /* ShareCardView.swift */; };
+		CC110005CC110005CC110005 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC110006CC110006CC110006 /* HistoryView.swift */; };
+		CC110007CC110007CC110007 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC110008CC110008CC110008 /* MainTabView.swift */; };
+		CC110009CC110009CC110009 /* ReviewPrompter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11000ACC11000ACC11000A /* ReviewPrompter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +58,12 @@
 		A0EC04A42A11817E00C33A41 /* FemaleScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FemaleScores.swift; sourceTree = "<group>"; };
 		A0F0CD802B61B4EB0084F037 /* FitnessScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessScoreCalculator.swift; sourceTree = "<group>"; };
 		A0F0CDC62B61D2350084F037 /* USAFA-Fitness-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "USAFA-Fitness-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A0FE12342C0000000000FE01 /* FitnessTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTheme.swift; sourceTree = "<group>"; };
+		CC110002CC110002CC110002 /* FitnessSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessSession.swift; sourceTree = "<group>"; };
+		CC110004CC110004CC110004 /* ShareCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCardView.swift; sourceTree = "<group>"; };
+		CC110006CC110006CC110006 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		CC110008CC110008CC110008 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		CC11000ACC11000ACC11000A /* ReviewPrompter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPrompter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +120,12 @@
 				A0EC047C2A117D1E00C33A41 /* MaleScores.swift */,
 				A0EC04A42A11817E00C33A41 /* FemaleScores.swift */,
 				A0F0CD802B61B4EB0084F037 /* FitnessScoreCalculator.swift */,
+				A0FE12342C0000000000FE01 /* FitnessTheme.swift */,
+				CC110002CC110002CC110002 /* FitnessSession.swift */,
+				CC110004CC110004CC110004 /* ShareCardView.swift */,
+				CC110006CC110006CC110006 /* HistoryView.swift */,
+				CC110008CC110008CC110008 /* MainTabView.swift */,
+				CC11000ACC11000ACC11000A /* ReviewPrompter.swift */,
 				A0F0CDC62B61D2350084F037 /* USAFA-Fitness-Info.plist */,
 				A0EC047E2A117D2000C33A41 /* Assets.xcassets */,
 				A0EC04802A117D2000C33A41 /* Preview Content */,
@@ -207,7 +225,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					A0EC04762A117D1E00C33A41 = {
 						CreatedOnToolsVersion = 14.3;
@@ -280,6 +298,12 @@
 				A020AC392B64407B009CA056 /* SplashPage.swift in Sources */,
 				A0F0CD812B61B4EB0084F037 /* FitnessScoreCalculator.swift in Sources */,
 				A0EC04A52A11817E00C33A41 /* FemaleScores.swift in Sources */,
+				A0FE12352C0000000000FE02 /* FitnessTheme.swift in Sources */,
+				CC110001CC110001CC110001 /* FitnessSession.swift in Sources */,
+				CC110003CC110003CC110003 /* ShareCardView.swift in Sources */,
+				CC110005CC110005CC110005 /* HistoryView.swift in Sources */,
+				CC110007CC110007CC110007 /* MainTabView.swift in Sources */,
+				CC110009CC110009CC110009 /* ReviewPrompter.swift in Sources */,
 				A0EC047B2A117D1E00C33A41 /* USAFA_FitnessApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +397,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -427,6 +452,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -454,12 +480,12 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.04;
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.USAFAFitness.USAFA-Fitness";
@@ -494,12 +520,12 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.04;
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.USAFAFitness.USAFA-Fitness";
 				PRODUCT_NAME = "$(TARGET_NAME)";

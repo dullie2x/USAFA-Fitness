@@ -1,21 +1,32 @@
 import SwiftUI
 
 struct FemaleScores: View {
-    @State private var pullUpsCount: Double = 0
-    @State private var jumpDistanceInches: Double = 60
-    @State private var sitUpsCount: Double = 0
-    @State private var pushUpsCount: Double = 0
-    @State private var runTimeIndex: Int = 0
-    @State private var aftTimeInSeconds: Int = 967
-    
+
+    // MARK: - Environment
+    @EnvironmentObject var history: FitnessHistory
+    @EnvironmentObject var reviewPrompter: ReviewPrompter
+
+    // MARK: - Save / Share state
+    @State private var justSaved       = false
+    @State private var shareableImage: ShareableImage?
+
+    // MARK: - State
+    @AppStorage("f_pullUps")   private var pullUpsCount:       Double = 0
+    @AppStorage("f_jump")      private var jumpDistanceInches: Double = 60
+    @AppStorage("f_sitUps")    private var sitUpsCount:        Double = 0
+    @AppStorage("f_pushUps")   private var pushUpsCount:       Double = 0
+    @AppStorage("f_runIdx")    private var runTimeIndex:       Int    = 0
+    @AppStorage("f_aftSecs")   private var aftTimeInSeconds:   Int    = 967
+
+    // MARK: - Score Tables
     let pullUpScores: [Int] = [0, 25, 37, 50, 57, 67, 78, 89, 100]
-    
+
     let jumpScores: [Int: Int] = [
         60: 0, 61: 1, 62: 4, 63: 6, 64: 9, 65: 12, 66: 15, 67: 18, 68: 22, 69: 25,
         70: 29, 71: 33, 72: 37, 73: 41, 74: 45, 75: 50, 76: 53, 77: 58, 78: 62, 79: 67,
         80: 71, 81: 76, 82: 80, 83: 85, 84: 90, 85: 95, 86: 100
     ]
-    
+
     let sitUpScores: [Int: Int] = [
         0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0,
         17: 0, 18: 0, 19: 0, 20: 0, 21: 0, 22: 0, 23: 0, 24: 0, 25: 0, 26: 0, 27: 0, 28: 0, 29: 0, 30: 0, 31: 0, 32: 0,
@@ -25,7 +36,7 @@ struct FemaleScores: View {
         77: 62, 78: 64, 79: 66, 80: 68, 81: 70, 82: 72, 83: 74, 84: 77, 85: 79, 86: 81, 87: 83, 88: 85, 89: 87, 90: 89,
         91: 91, 92: 94, 93: 96, 94: 98, 95: 100
     ]
-    
+
     let pushUpScores: [Int: Int] = [
         0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 1, 6: 2, 7: 4, 8: 6, 9: 7,
         10: 9, 11: 11, 12: 13, 13: 15, 14: 17, 15: 19, 16: 21, 17: 23, 18: 25, 19: 27,
@@ -33,7 +44,7 @@ struct FemaleScores: View {
         30: 53, 31: 56, 32: 58, 33: 61, 34: 63, 35: 66, 36: 68, 37: 71, 38: 73, 39: 76,
         40: 79, 41: 81, 42: 84, 43: 86, 44: 89, 45: 92, 46: 95, 47: 97, 48: 100
     ]
-    
+
     let runTimesInSeconds: [Int] = Array(stride(from: 154, through: 113, by: -1))
     let runScores: [Int: Int] = [
         154: 0, 153: 2, 152: 4, 151: 7, 150: 9, 149: 11, 148: 13, 147: 16, 146: 18, 145: 20,
@@ -42,10 +53,10 @@ struct FemaleScores: View {
         124: 69, 123: 72, 122: 74, 121: 77, 120: 80, 119: 82, 118: 85, 117: 88, 116: 90, 115: 93,
         114: 96, 113: 100
     ]
-    
-    let maxAftTimeInSeconds = 967
-    let minAftTimeInSeconds = 535
-    
+
+    let maxAftTimeInSeconds = 967   // 16:07
+    let minAftTimeInSeconds = 535   // 8:55
+
     let aftTimesToScores: [Int: Int] = [
         535: 500, 536: 499, 537: 498, 538: 498, 539: 497, 540: 497, 541: 496, 542: 496, 543: 495, 544: 495,
         545: 494, 546: 494, 547: 493, 548: 493, 549: 492, 550: 492, 551: 491, 552: 491, 553: 490, 554: 490,
@@ -86,193 +97,318 @@ struct FemaleScores: View {
         895: 100, 896: 100, 897: 100, 898: 100, 899: 100, 900: 100, 901: 100, 902: 100, 903: 100, 904: 100,
         905: 100, 906: 100, 907: 100, 908: 100, 909: 100, 910: 100, 911: 100, 912: 100, 913: 100, 914: 100,
         915: 100, 916: 100, 917: 100, 918: 100, 919: 100, 920: 100, 921: 100, 922: 100, 923: 100, 924: 100,
-        925: 100, 926: 100, 927: 100, 928: 100, 929: 100, 930: 100, 931: 50, 932: 50, 933: 50, 934: 50,
-        935: 50, 936: 50, 937: 50, 938: 50, 939: 50, 940: 50, 941: 50, 942: 50, 943: 50, 944: 50, 945: 50,
-        946: 50, 947: 50, 948: 50, 949: 50, 950: 50, 951: 50, 952: 50, 953: 50, 954: 50, 955: 50, 956: 50,
-        957: 50, 958: 50, 959: 50, 960: 50, 961: 50, 962: 50, 963: 50, 964: 50, 965: 50, 966: 50, 967: 0
+        925: 100, 926: 100, 927: 100, 928: 100, 929: 100, 930: 100, 931: 50,  932: 50,  933: 50,  934: 50,
+        935: 50,  936: 50,  937: 50,  938: 50,  939: 50,  940: 50,  941: 50,  942: 50,  943: 50,  944: 50,
+        945: 50,  946: 50,  947: 50,  948: 50,  949: 50,  950: 50,  951: 50,  952: 50,  953: 50,  954: 50,
+        955: 50,  956: 50,  957: 50,  958: 50,  959: 50,  960: 50,  961: 50,  962: 50,  963: 50,  964: 50,
+        965: 50,  966: 50,  967: 0
     ]
 
-    var aftScore: Int {
-        return aftTimesToScores[aftTimeInSeconds] ?? 0
-    }
-    
-    struct GradeScale {
-        var pointScale: Double
-        var grade: String
-        var scoreRange: ClosedRange<Int>
-    }
-    
-    let gradeScales = [
-        GradeScale(pointScale: 4.0, grade: "A", scoreRange: 476...500),
-        GradeScale(pointScale: 3.7, grade: "A-", scoreRange: 451...475),
-        GradeScale(pointScale: 3.3, grade: "B+", scoreRange: 426...450),
-        GradeScale(pointScale: 3.0, grade: "B", scoreRange: 400...425),
-        GradeScale(pointScale: 2.7, grade: "B-", scoreRange: 371...399),
-        GradeScale(pointScale: 2.5, grade: "N/A", scoreRange: 331...370),
-        GradeScale(pointScale: 2.3, grade: "C+", scoreRange: 291...330),
-        GradeScale(pointScale: 2.0, grade: "C", scoreRange: 250...290),
-        GradeScale(pointScale: 1.7, grade: "C-", scoreRange: 226...249),
-        GradeScale(pointScale: 1.0, grade: "D", scoreRange: 200...225),
-        GradeScale(pointScale: 0.0, grade: "N/A", scoreRange: 0...199)
-    ]
+    // MARK: - Computed Scores
+    var aftScore: Int { aftTimesToScores[aftTimeInSeconds] ?? 0 }
 
-    func gradeAndScale(for score: Int) -> (grade: String, pointScale: Double) {
-        for scale in gradeScales {
-            if scale.scoreRange.contains(score) {
-                return (scale.grade, scale.pointScale)
-            }
-        }
-        return ("N/A", 0.0) // In case there is no matching scale
+    var pullUpScore: Int { pullUpScores[min(Int(pullUpsCount), pullUpScores.count - 1)] }
+    var jumpScore:   Int { jumpScores[Int(jumpDistanceInches), default: 0] }
+    var sitUpScore:  Int { sitUpScores[Int(sitUpsCount), default: 0] }
+    var pushUpScore: Int { pushUpScores[Int(pushUpsCount), default: 0] }
+    var runScore:    Int {
+        let idx = min(max(runTimeIndex, 0), runTimesInSeconds.count - 1)
+        return runScores[runTimesInSeconds[idx], default: 0]
     }
-    
-    var totalScore: Int {
-        // Safe access to pull up scores with bounds checking
-        let safeIndex = min(Int(pullUpsCount), pullUpScores.count - 1)
-        let pullUpScore = pullUpScores[safeIndex]
-        
-        // Dictionary accesses with default values to prevent crashes
-        let jumpScore = jumpScores[Int(jumpDistanceInches), default: 0]
-        let sitUpScore = sitUpScores[Int(sitUpsCount), default: 0]
-        let pushUpScore = pushUpScores[Int(pushUpsCount), default: 0]
-        
-        // Safe access to run scores
-        let safeRunTimeIndex = min(max(runTimeIndex, 0), runTimesInSeconds.count - 1)
-        let runTime = runTimesInSeconds[safeRunTimeIndex]
-        let runScore = runScores[runTime, default: 0]
-        
-        return pullUpScore + jumpScore + sitUpScore + pushUpScore + runScore
+    var totalPFTScore: Int { pullUpScore + jumpScore + sitUpScore + pushUpScore + runScore }
+
+    // Formatted display values
+    private var aftTimeString: String {
+        "\(aftTimeInSeconds / 60):\(String(format: "%02d", aftTimeInSeconds % 60))"
     }
-    
+    private var runTimeString: String {
+        let s = runTimesInSeconds[min(max(runTimeIndex, 0), runTimesInSeconds.count - 1)]
+        return "\(s / 60):\(String(format: "%02d", s % 60))"
+    }
+    private var jumpString: String {
+        "\(Int(jumpDistanceInches) / 12)'\(String(format: "%02d", Int(jumpDistanceInches) % 12))\""
+    }
+
+    // Accent color for female view (uses gold to differentiate slightly)
+    private let accentColor = Color.usafaNavyAdaptive
+
+    // MARK: - Body
     var body: some View {
-        ScrollView {
-            VStack(spacing: 1) {
-                // AFT Time section
-                VStack(spacing: 5) {
-                    HStack {
-                        Spacer()
-                        Text("Female AFT Time")
-                            .font(.title)
-                            .bold()
-                        Spacer()
-                    }
-                    
-                    HStack {
-                        Slider(value: Binding(
-                            get: { Double(maxAftTimeInSeconds - aftTimeInSeconds) },
-                            set: { aftTimeInSeconds = maxAftTimeInSeconds - Int($0) }
-                        ),
-                        in: 0...Double(maxAftTimeInSeconds - minAftTimeInSeconds)
-                        )
-                        .accentColor(.green)
-                    }
-                    
-                    let minutes = aftTimeInSeconds / 60
-                    let seconds = aftTimeInSeconds % 60
-                    Text("\(minutes):\(String(format: "%02d", seconds))")
-                        .font(.headline)
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 20) {
+
+                // ── Score Summary Rings ─────────────────────────────
+                scoreRingsSection
+                    .padding(.horizontal, 16)
+                    .padding(.top, 20)
+
+                // ── Save / Share Actions ────────────────────────────
+                actionButtons
+                    .padding(.horizontal, 16)
+
+                // ── AFT Section ─────────────────────────────────────
+                VStack(alignment: .leading, spacing: 12) {
+                    SectionHeader(title: "Aerobic Fitness Test", icon: "figure.run")
+                    aftCard
                 }
-                
-                // AFT Score display
-                let scoreDetailsAft = gradeAndScale(for: aftScore)
-                Text("Female AFT Score: \(aftScore)")
-                    .font(.title)
-                    .bold()
-                    .padding()
-                Text("Grade: \(scoreDetailsAft.grade)   \(String(format: "%.1f", scoreDetailsAft.pointScale))")
-                    .bold()
-                    .padding()
-                
-                // PFT Controls
-                Group {
-                    // Pull Ups
-                    VStack(spacing: 3) {
-                        Slider(value: $pullUpsCount, in: 0...Double(pullUpScores.count - 1), step: 1)
-                            .accentColor(.green)
-                        Text("\(Int(pullUpsCount)) Pull-ups")
-                            .font(.headline)
-                        
-                        // Safe access to scores
-                        let safeIndex = min(Int(pullUpsCount), pullUpScores.count - 1)
-                        Text("\(pullUpScores[safeIndex]) Points")
-                            .font(.subheadline)
-                    }
-                    
-                    // Jump Distance
-                    VStack(spacing: 3) {
-                        Slider(value: $jumpDistanceInches, in: 60...86, step: 1)
-                            .accentColor(.green)
-                        let feet = Int(jumpDistanceInches) / 12
-                        let inches = Int(jumpDistanceInches) % 12
-                        Text("\(feet)'\(String(format: "%02d", inches))\" Jump")
-                            .font(.headline)
-                        Text("\(jumpScores[Int(jumpDistanceInches), default: 0]) Points")
-                            .font(.subheadline)
-                    }
-                    
-                    // Sit Ups
-                    VStack(spacing: 3) {
-                        Slider(value: $sitUpsCount, in: 0...95, step: 1)
-                            .accentColor(.green)
-                        Text("\(Int(sitUpsCount)) Sit-ups")
-                            .font(.headline)
-                        Text("\(sitUpScores[Int(sitUpsCount), default: 0]) Points")
-                            .font(.subheadline)
-                    }
-                    
-                    // Push Ups
-                    VStack(spacing: 3) {
-                        Slider(value: $pushUpsCount, in: 0...48, step: 1)
-                            .accentColor(.green)
-                        Text("\(Int(pushUpsCount)) Push-ups")
-                            .font(.headline)
-                        Text("\(pushUpScores[Int(pushUpsCount), default: 0]) Points")
-                            .font(.subheadline)
-                    }
-                    
-                    // 600m Run
-                    VStack(spacing: 10) {
-                        Slider(value: Binding(
-                            get: { Double(self.runTimeIndex) },
-                            set: { newValue in
-                                self.runTimeIndex = min(max(Int(newValue), 0), self.runTimesInSeconds.count - 1)
-                            }),
-                        in: 0...Double(runTimesInSeconds.count - 1)
-                        )
-                        .accentColor(.green)
-                        
-                        let safeRunTimeIndex = min(max(runTimeIndex, 0), runTimesInSeconds.count - 1)
-                        let timeInSeconds = runTimesInSeconds[safeRunTimeIndex]
-                        let minutes = timeInSeconds / 60
-                        let seconds = timeInSeconds % 60
-                        
-                        Text("\(minutes):\(String(format: "%02d", seconds)) Run")
-                            .font(.headline)
-                        Text("\(runScores[timeInSeconds, default: 0]) Points")
-                            .font(.subheadline)
-                    }
+                .padding(.horizontal, 16)
+
+                // ── PFT Section ─────────────────────────────────────
+                VStack(alignment: .leading, spacing: 12) {
+                    SectionHeader(title: "Physical Fitness Test", icon: "figure.strengthtraining.traditional")
+                    pullUpsCard
+                    jumpCard
+                    sitUpsCard
+                    pushUpsCard
+                    runCard
                 }
-                
-                // PFT Score display
-                let scoreDetails = gradeAndScale(for: totalScore)
-                Text("Female PFT Score: \(totalScore)")
-                    .font(.title)
-                    .bold()
-                    .padding()
-                
-                Text("Grade: \(scoreDetails.grade)   \(String(format: "%.1f", scoreDetails.pointScale))")
-                    .font(.headline)
-                    .bold()
-                    .padding()
+                .padding(.horizontal, 16)
+
+                Spacer().frame(height: 40)
             }
-            .padding()
-            .foregroundColor(.blue)
         }
-        .edgesIgnoringSafeArea(.all)
+        .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+        .sheet(item: $shareableImage, onDismiss: { reviewPrompter.recordSignificantAction() }) { wrapper in
+            ShareSheet(activityItem: ShareActivityItem(image: wrapper.image, gender: wrapper.gender))
+        }
+    }
+
+    // MARK: - Action Buttons (Save + Share)
+    private var actionButtons: some View {
+        HStack(spacing: 10) {
+            // Save Session
+            Button {
+                let session = FitnessSession(
+                    gender: "Female",
+                    aftScore: aftScore,
+                    pullUpScore: pullUpScore,
+                    jumpScore: jumpScore,
+                    sitUpScore: sitUpScore,
+                    pushUpScore: pushUpScore,
+                    runScore: runScore
+                )
+                history.add(session)
+                reviewPrompter.recordSignificantAction()
+                withAnimation(.spring(response: 0.3)) { justSaved = true }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+                    withAnimation { justSaved = false }
+                }
+            } label: {
+                HStack(spacing: 6) {
+                    Image(systemName: justSaved ? "checkmark.circle.fill" : "square.and.arrow.down")
+                        .font(.system(size: 13, weight: .semibold))
+                    Text(justSaved ? "Saved!" : "Save Session")
+                        .font(.system(.subheadline, design: .rounded).weight(.semibold))
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .foregroundColor(justSaved ? Color(red: 0.13, green: 0.80, blue: 0.43) : .white)
+                .background(justSaved ? Color(red: 0.13, green: 0.80, blue: 0.43).opacity(0.15) : Color.usafaNavyAdaptive)
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .stroke(justSaved ? Color(red: 0.13, green: 0.80, blue: 0.43) : Color.clear, lineWidth: 1)
+                )
+            }
+
+            // Share
+            Button {
+                if let img = renderShareCard(
+                    gender: "Female",
+                    aftScore: aftScore,
+                    pullUpScore: pullUpScore,
+                    jumpScore: jumpScore,
+                    sitUpScore: sitUpScore,
+                    pushUpScore: pushUpScore,
+                    runScore: runScore
+                ) {
+                    shareableImage = ShareableImage(image: img, gender: "Female")
+                }
+            } label: {
+                HStack(spacing: 6) {
+                    Image(systemName: "square.and.arrow.up")
+                        .font(.system(size: 13, weight: .semibold))
+                    Text("Share")
+                        .font(.system(.subheadline, design: .rounded).weight(.semibold))
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .foregroundColor(Color.usafaNavyAdaptive)
+                .background(Color.usafaNavyAdaptive.opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            }
+        }
+    }
+
+    // MARK: - Score Rings
+    private var scoreRingsSection: some View {
+        HStack(spacing: 16) {
+            let aftInfo = gradeInfo(for: aftScore)
+            ScoreRingView(
+                score: aftScore, maxScore: 500,
+                label: "AFT",
+                grade: aftInfo.grade,
+                pointScale: aftInfo.pointScale
+            )
+            .frame(height: 170)
+            .frame(maxWidth: .infinity)
+            .padding(12)
+            .background(Color(UIColor.secondarySystemGroupedBackground))
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .shadow(color: .black.opacity(0.05), radius: 6, x: 0, y: 2)
+
+            let pftInfo = gradeInfo(for: totalPFTScore)
+            ScoreRingView(
+                score: totalPFTScore, maxScore: 500,
+                label: "PFT",
+                grade: pftInfo.grade,
+                pointScale: pftInfo.pointScale
+            )
+            .frame(height: 170)
+            .frame(maxWidth: .infinity)
+            .padding(12)
+            .background(Color(UIColor.secondarySystemGroupedBackground))
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .shadow(color: .black.opacity(0.05), radius: 6, x: 0, y: 2)
+        }
+    }
+
+    // MARK: - AFT Card
+    private var aftCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("1.5 Mile Run")
+                        .font(.system(.caption, design: .rounded).weight(.bold))
+                        .tracking(0.8)
+                        .textCase(.uppercase)
+                        .foregroundColor(.secondary)
+                    Text(aftTimeString)
+                        .font(.system(size: 26, weight: .heavy, design: .rounded))
+                        .foregroundColor(accentColor)
+                        .contentTransition(.numericText())
+                        .animation(.spring(response: 0.3), value: aftTimeInSeconds)
+                }
+                Spacer()
+                PointsBadge(points: aftScore, maxPoints: 500)
+            }
+
+            MiniProgressBar(points: aftScore, maxPoints: 500)
+
+            Slider(
+                value: Binding(
+                    get: { Double(maxAftTimeInSeconds - aftTimeInSeconds) },
+                    set: { aftTimeInSeconds = maxAftTimeInSeconds - Int($0) }
+                ),
+                in: 0...Double(maxAftTimeInSeconds - minAftTimeInSeconds)
+            )
+            .tint(accentColor)
+
+            HStack {
+                Text("Best: 8:55")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+                Spacer()
+                let info = gradeInfo(for: aftScore)
+                GradeBadge(grade: info.grade, pointScale: info.pointScale)
+                Spacer()
+                Text("Min: 16:07")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
+        }
+        .cardStyle()
+    }
+
+    // MARK: - PFT Cards
+    private var pullUpsCard: some View {
+        exerciseCard(title: "Pull-Ups", value: "\(Int(pullUpsCount)) reps",
+                     points: pullUpScore, maxPoints: 100) {
+            Slider(value: $pullUpsCount, in: 0...Double(pullUpScores.count - 1), step: 1)
+                .tint(accentColor)
+        }
+    }
+
+    private var jumpCard: some View {
+        exerciseCard(title: "Standing Broad Jump", value: jumpString,
+                     points: jumpScore, maxPoints: 100) {
+            Slider(value: $jumpDistanceInches, in: 60...86, step: 1)
+                .tint(accentColor)
+        }
+    }
+
+    private var sitUpsCard: some View {
+        exerciseCard(title: "Sit-Ups", value: "\(Int(sitUpsCount)) reps",
+                     points: sitUpScore, maxPoints: 100) {
+            Slider(value: $sitUpsCount, in: 0...95, step: 1)
+                .tint(accentColor)
+        }
+    }
+
+    private var pushUpsCard: some View {
+        exerciseCard(title: "Push-Ups", value: "\(Int(pushUpsCount)) reps",
+                     points: pushUpScore, maxPoints: 100) {
+            Slider(value: $pushUpsCount, in: 0...48, step: 1)
+                .tint(accentColor)
+        }
+    }
+
+    private var runCard: some View {
+        exerciseCard(title: "600m Run", value: runTimeString,
+                     points: runScore, maxPoints: 100) {
+            Slider(
+                value: Binding(
+                    get: { Double(runTimeIndex) },
+                    set: { runTimeIndex = min(max(Int($0), 0), runTimesInSeconds.count - 1) }
+                ),
+                in: 0...Double(runTimesInSeconds.count - 1)
+            )
+            .tint(accentColor)
+        }
+    }
+
+    // MARK: - Reusable Exercise Card (no icons)
+    @ViewBuilder
+    private func exerciseCard<S: View>(
+        title: String,
+        value: String,
+        points: Int,
+        maxPoints: Int,
+        @ViewBuilder slider: () -> S
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(title)
+                        .font(.system(.caption, design: .rounded).weight(.bold))
+                        .tracking(0.8)
+                        .textCase(.uppercase)
+                        .foregroundColor(.secondary)
+                    Text(value)
+                        .font(.system(size: 24, weight: .heavy, design: .rounded))
+                        .foregroundColor(accentColor)
+                        .contentTransition(.numericText())
+                        .animation(.spring(response: 0.25), value: value)
+                }
+                Spacer()
+                PointsBadge(points: points, maxPoints: maxPoints)
+            }
+
+            MiniProgressBar(points: points, maxPoints: maxPoints)
+            slider()
+        }
+        .cardStyle()
     }
 }
 
-struct FemaleScores_Previews: PreviewProvider {
-    static var previews: some View {
-        FemaleScores()
-    }
+// MARK: - Preview
+#Preview {
+    FemaleScores()
+        .environmentObject(FitnessHistory())
+}
+
+#Preview("Dark") {
+    FemaleScores()
+        .environmentObject(FitnessHistory())
+        .preferredColorScheme(.dark)
 }
