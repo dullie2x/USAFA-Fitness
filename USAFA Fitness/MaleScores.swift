@@ -18,16 +18,16 @@ struct MaleScores: View {
     @AppStorage("m_runIdx")    private var runTimeIndex:       Int    = 0
     @AppStorage("m_aftSecs")   private var aftTimeInSeconds:   Int    = (14 * 60) + 1
 
-    // MARK: - Score Tables
-    let pullUpScores: [Int] = [0, 2, 5, 9, 13, 17, 21, 25, 30, 35, 40, 45, 50, 55, 60, 66, 71, 77, 82, 88, 94, 100]
+    // MARK: - Score Tables (static so they're built once, not on every redraw)
+    static let pullUpScores: [Int] = [0, 2, 5, 9, 13, 17, 21, 25, 30, 35, 40, 45, 50, 55, 60, 66, 71, 77, 82, 88, 94, 100]
 
-    let jumpScores: [Int: Int] = [
+    static let jumpScores: [Int: Int] = [
         73: 0, 74: 1, 75: 3, 76: 5, 77: 7, 78: 9, 79: 12, 80: 14, 81: 17, 82: 20, 83: 23, 84: 25, 85: 29, 86: 32, 87: 36,
         88: 39, 89: 42, 90: 46, 91: 50, 92: 53, 93: 57, 94: 60, 95: 64, 96: 68, 97: 72, 98: 76, 99: 80, 100: 84, 101: 88,
         102: 91, 103: 96, 104: 100
     ]
 
-    let sitUpScores: [Int: Int] = [
+    static let sitUpScores: [Int: Int] = [
         0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0,
         17: 0, 18: 0, 19: 0, 20: 0, 21: 0, 22: 0, 23: 0, 24: 0, 25: 0, 26: 0, 27: 0, 28: 0, 29: 0, 30: 0, 31: 0, 32: 0,
         33: 0, 34: 0, 35: 0, 36: 0, 37: 0, 38: 0, 39: 0, 40: 0, 41: 0, 42: 0, 43: 1, 44: 2, 45: 4, 46: 5, 47: 7, 48: 8,
@@ -37,7 +37,7 @@ struct MaleScores: View {
         91: 91, 92: 94, 93: 96, 94: 98, 95: 100
     ]
 
-    let pushUpScores: [Int: Int] = [
+    static let pushUpScores: [Int: Int] = [
         0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0,
         10: 0, 11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17: 0, 18: 0, 19: 1,
         20: 2, 21: 3, 22: 4, 23: 6, 24: 7, 25: 9, 26: 10, 27: 12, 28: 13, 29: 15,
@@ -48,18 +48,18 @@ struct MaleScores: View {
         70: 96, 71: 98, 72: 100
     ]
 
-    let runTimesInSeconds: [Int] = Array(stride(from: 133, through: 95, by: -1))
-    let runScores: [Int: Int] = [
+    static let runTimesInSeconds: [Int] = Array(stride(from: 133, through: 95, by: -1))
+    static let runScores: [Int: Int] = [
         133: 0, 132: 2, 131: 5, 130: 7, 129: 10, 128: 12, 127: 14, 126: 17, 125: 19, 124: 22,
         123: 25, 122: 26, 121: 29, 120: 31, 119: 34, 118: 36, 117: 39, 116: 41, 115: 44, 114: 46,
         113: 50, 112: 52, 111: 54, 110: 57, 109: 59, 108: 62, 107: 65, 106: 67, 105: 70, 104: 73,
         103: 75, 102: 78, 101: 81, 100: 84, 99: 87, 98: 90, 97: 93, 96: 96, 95: 100
     ]
 
-    let maxAftTimeInSeconds = 14 * 60 + 1   // 14:01
-    let minAftTimeInSeconds = 7  * 60 + 45  // 7:45
+    static let maxAftTimeInSeconds = 14 * 60 + 1   // 14:01
+    static let minAftTimeInSeconds = 7  * 60 + 45  // 7:45
 
-    let aftTimesToScores: [Int: Int] = [
+    static let aftTimesToScores: [Int: Int] = [
         465: 500, 466: 499, 467: 498, 468: 497, 469: 497, 470: 496, 471: 496, 472: 495, 473: 495, 474: 494,
         475: 493, 476: 492, 477: 492, 478: 491, 479: 491, 480: 490, 481: 490, 482: 489, 483: 489, 484: 488,
         485: 488, 486: 487, 487: 487, 488: 486, 489: 486, 490: 485, 491: 484, 492: 483, 493: 483, 494: 482,
@@ -101,15 +101,15 @@ struct MaleScores: View {
     ]
 
     // MARK: - Computed Scores
-    var aftScore: Int { aftTimesToScores[aftTimeInSeconds] ?? 0 }
+    var aftScore: Int { Self.aftTimesToScores[aftTimeInSeconds] ?? 0 }
 
-    var pullUpScore:  Int { pullUpScores[min(Int(pullUpsCount), pullUpScores.count - 1)] }
-    var jumpScore:    Int { jumpScores[Int(jumpDistanceInches), default: 0] }
-    var sitUpScore:   Int { sitUpScores[Int(sitUpsCount), default: 0] }
-    var pushUpScore:  Int { pushUpScores[Int(pushUpsCount), default: 0] }
+    var pullUpScore:  Int { Self.pullUpScores[min(Int(pullUpsCount), Self.pullUpScores.count - 1)] }
+    var jumpScore:    Int { Self.jumpScores[Int(jumpDistanceInches), default: 0] }
+    var sitUpScore:   Int { Self.sitUpScores[Int(sitUpsCount), default: 0] }
+    var pushUpScore:  Int { Self.pushUpScores[Int(pushUpsCount), default: 0] }
     var runScore:     Int {
-        let idx  = min(max(runTimeIndex, 0), runTimesInSeconds.count - 1)
-        return runScores[runTimesInSeconds[idx], default: 0]
+        let idx  = min(max(runTimeIndex, 0), Self.runTimesInSeconds.count - 1)
+        return Self.runScores[Self.runTimesInSeconds[idx], default: 0]
     }
     var totalPFTScore: Int { pullUpScore + jumpScore + sitUpScore + pushUpScore + runScore }
 
@@ -120,7 +120,7 @@ struct MaleScores: View {
 
     // Run time display
     private var currentRunSeconds: Int {
-        runTimesInSeconds[min(max(runTimeIndex, 0), runTimesInSeconds.count - 1)]
+        Self.runTimesInSeconds[min(max(runTimeIndex, 0), Self.runTimesInSeconds.count - 1)]
     }
     private var runTimeString: String {
         "\(currentRunSeconds / 60):\(String(format: "%02d", currentRunSeconds % 60))"
@@ -297,10 +297,10 @@ struct MaleScores: View {
 
             Slider(
                 value: Binding(
-                    get: { Double(maxAftTimeInSeconds - aftTimeInSeconds) },
-                    set: { aftTimeInSeconds = maxAftTimeInSeconds - Int($0) }
+                    get: { Double(Self.maxAftTimeInSeconds - aftTimeInSeconds) },
+                    set: { aftTimeInSeconds = Self.maxAftTimeInSeconds - Int($0) }
                 ),
-                in: 0...Double(maxAftTimeInSeconds - minAftTimeInSeconds)
+                in: 0...Double(Self.maxAftTimeInSeconds - Self.minAftTimeInSeconds)
             )
             .tint(.usafaNavyAdaptive)
 
@@ -324,7 +324,7 @@ struct MaleScores: View {
     private var pullUpsCard: some View {
         exerciseCard(title: "Pull-Ups", value: "\(Int(pullUpsCount)) reps",
                      points: pullUpScore, maxPoints: 100) {
-            Slider(value: $pullUpsCount, in: 0...Double(pullUpScores.count - 1), step: 1)
+            Slider(value: $pullUpsCount, in: 0...Double(Self.pullUpScores.count - 1), step: 1)
                 .tint(.usafaNavyAdaptive)
         }
     }
@@ -359,9 +359,9 @@ struct MaleScores: View {
             Slider(
                 value: Binding(
                     get: { Double(runTimeIndex) },
-                    set: { runTimeIndex = min(max(Int($0), 0), runTimesInSeconds.count - 1) }
+                    set: { runTimeIndex = min(max(Int($0), 0), Self.runTimesInSeconds.count - 1) }
                 ),
-                in: 0...Double(runTimesInSeconds.count - 1)
+                in: 0...Double(Self.runTimesInSeconds.count - 1)
             )
             .tint(.usafaNavyAdaptive)
         }
@@ -404,9 +404,13 @@ struct MaleScores: View {
 // MARK: - Preview
 #Preview {
     MaleScores()
+        .environmentObject(FitnessHistory())
+        .environmentObject(ReviewPrompter())
 }
 
 #Preview("Dark") {
     MaleScores()
+        .environmentObject(FitnessHistory())
+        .environmentObject(ReviewPrompter())
         .preferredColorScheme(.dark)
 }

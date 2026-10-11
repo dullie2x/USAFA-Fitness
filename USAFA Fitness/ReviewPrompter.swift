@@ -2,19 +2,24 @@ import SwiftUI
 import StoreKit
 
 // MARK: - Review Prompter
-/// Counts saved and shared sessions and, once the user has done
-/// enough of them, asks "Enjoying USAFA Fitness?". A "Yes" hands off to Apple's
-/// native review prompt; a "No" just backs off until later.
+/// Asks "Enjoying USAFA Fitness?" once the user has shown they're getting value from
+/// the app — either by saving/sharing sessions, or by coming back on several different
+/// days, whichever happens first. A "Yes" hands off to Apple's native review prompt;
+/// a "No" just backs off until later.
 final class ReviewPrompter: ObservableObject {
     @Published var showEnjoymentPrompt = false
 
-    /// Saves/shares required before the first ask.
+    /// Saves/shares required before asking.
     private let actionsBeforePrompt = 2
+    /// Distinct days the app has been opened before asking.
+    private let daysOpenedBeforePrompt = 5
     /// Minimum days between asks.
     private let daysBetweenPrompts = 60
 
     private let defaults = UserDefaults.standard
     private let actionCountKey     = "review_actionCount"
+    private let daysOpenedKey      = "review_daysOpened"
+    private let lastOpenDayKey     = "review_lastOpenDay"
     private let lastPromptDateKey  = "review_lastPromptDate"
     private let lastVersionKey     = "review_lastPromptedVersion"
 
@@ -24,15 +29,23 @@ final class ReviewPrompter: ObservableObject {
 
     /// Call after the user does something that shows they're getting value from the app.
     func recordSignificantAction() {
-        let count = defaults.integer(forKey: actionCountKey) + 1
-        defaults.set(count, forKey: actionCountKey)
-
-        guard shouldPrompt(actionCount: count) else { return }
-
+        defaults.set(defaults.integer(forKey: actionCountKey) + 1, forKey: actionCountKey)
         // Small delay so the prompt doesn't collide with the action's own feedback
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-            self.showEnjoymentPrompt = true
+        promptIfEligible(after: 1.2)
+    }
+
+    /// Call whenever the app comes to the foreground. Only the first open of each
+    /// calendar day counts. Pass `allowPrompt: false` when something else (like an ad)
+    /// is about to take over the screen.
+    func recordAppOpen(allowPrompt: Bool = true) {
+        let today = Calendar.current.startOfDay(for: Date())
+        if let lastDay = defaults.object(forKey: lastOpenDayKey) as? Date, lastDay >= today {
+            return  // already counted today
         }
+        defaults.set(today, forKey: lastOpenDayKey)
+        defaults.set(defaults.integer(forKey: daysOpenedKey) + 1, forKey: daysOpenedKey)
+
+        if allowPrompt { promptIfEligible(after: 1.5) }
     }
 
     /// Call when the enjoyment prompt is answered (either way).
@@ -40,10 +53,20 @@ final class ReviewPrompter: ObservableObject {
         defaults.set(Date(), forKey: lastPromptDateKey)
         defaults.set(currentVersion, forKey: lastVersionKey)
         defaults.set(0, forKey: actionCountKey)
+        defaults.set(0, forKey: daysOpenedKey)
     }
 
-    private func shouldPrompt(actionCount: Int) -> Bool {
-        guard actionCount >= actionsBeforePrompt else { return false }
+    private func promptIfEligible(after delay: TimeInterval) {
+        guard shouldPrompt() else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            self.showEnjoymentPrompt = true
+        }
+    }
+
+    private func shouldPrompt() -> Bool {
+        let enoughActions = defaults.integer(forKey: actionCountKey) >= actionsBeforePrompt
+        let enoughDays    = defaults.integer(forKey: daysOpenedKey) >= daysOpenedBeforePrompt
+        guard enoughActions || enoughDays else { return false }
 
         // Only ask once per app version
         if defaults.string(forKey: lastVersionKey) == currentVersion { return false }

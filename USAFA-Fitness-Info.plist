@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleIdentifier</key>
 	<string>com.USAFAFitness.USAFA-Fitness</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This lets us show ads that are more relevant to you, which helps keep USAFA Fitness free.</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3883739672732267~7182169608</string>
 	<key>SKAdNetworkItems</key>

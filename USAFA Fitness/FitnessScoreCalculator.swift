@@ -11,6 +11,7 @@ enum FitnessGender: String, CaseIterable, Identifiable {
 struct FitnessScoreCalculator: View {
     @AppStorage("selectedGender") private var selectedGender: FitnessGender = .male
     @Environment(\.colorScheme) private var colorScheme
+    @Namespace private var togglePill
 
     var body: some View {
         VStack(spacing: 0) {
@@ -25,23 +26,22 @@ struct FitnessScoreCalculator: View {
                     Divider().opacity(colorScheme == .dark ? 0.3 : 0.5)
                 }
 
-            // One view at a time — slider state persists via @AppStorage
-            ZStack {
-                if selectedGender == .male {
+            // Both screens stay loaded side by side and slide as one, so switching
+            // never rebuilds a screen mid-animation (and each keeps its scroll position).
+            GeometryReader { geo in
+                let width = geo.size.width
+                let isMale = selectedGender == .male
+                ZStack {
                     MaleScores()
-                        .transition(.asymmetric(
-                            insertion: .move(edge: .trailing).combined(with: .opacity),
-                            removal:   .move(edge: .leading).combined(with: .opacity)
-                        ))
-                } else {
+                        .offset(x: isMale ? 0 : -width)
+                        .allowsHitTesting(isMale)
+                        .accessibilityHidden(!isMale)
                     FemaleScores()
-                        .transition(.asymmetric(
-                            insertion: .move(edge: .leading).combined(with: .opacity),
-                            removal:   .move(edge: .trailing).combined(with: .opacity)
-                        ))
+                        .offset(x: isMale ? width : 0)
+                        .allowsHitTesting(!isMale)
+                        .accessibilityHidden(isMale)
                 }
             }
-            .animation(.spring(response: 0.4, dampingFraction: 0.82), value: selectedGender)
         }
         // NOTE: No .ignoresSafeArea on outer VStack — header background handles it
     }
@@ -89,7 +89,7 @@ struct FitnessScoreCalculator: View {
             ForEach(FitnessGender.allCases) { gender in
                 Button {
                     guard gender != selectedGender else { return }
-                    withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) {
+                    withAnimation(.spring(response: 0.35, dampingFraction: 0.9)) {
                         selectedGender = gender
                     }
                 } label: {
@@ -101,12 +101,14 @@ struct FitnessScoreCalculator: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10, style: .continuous)
-                            .fill(selectedGender == gender
-                                  ? Color.usafaNavyAdaptive
-                                  : Color.clear)
-                    )
+                    .background {
+                        // One pill that slides between options instead of two that cross-fade
+                        if selectedGender == gender {
+                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                .fill(Color.usafaNavyAdaptive)
+                                .matchedGeometryEffect(id: "pill", in: togglePill)
+                        }
+                    }
                     .foregroundColor(selectedGender == gender ? .white : .secondary)
                 }
                 .modifier(SensoryFeedbackModifier(trigger: selectedGender))
@@ -140,12 +142,18 @@ struct SensoryFeedbackModifier<T: Equatable>: ViewModifier {
 // MARK: - Previews
 #Preview("Male") {
     FitnessScoreCalculator()
+        .environmentObject(FitnessHistory())
+        .environmentObject(ReviewPrompter())
 }
 #Preview("Female") {
     FitnessScoreCalculator()
+        .environmentObject(FitnessHistory())
+        .environmentObject(ReviewPrompter())
         .onAppear { UserDefaults.standard.set("Female", forKey: "selectedGender") }
 }
 #Preview("Dark Mode") {
     FitnessScoreCalculator()
+        .environmentObject(FitnessHistory())
+        .environmentObject(ReviewPrompter())
         .preferredColorScheme(.dark)
 }
